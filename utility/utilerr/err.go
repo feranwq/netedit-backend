@@ -10,15 +10,15 @@ func ErrIsNil(ctx context.Context, err error, msg ...string) {
 	if !g.IsNil(err) {
 		if len(msg) > 0 {
 			g.Log().Error(ctx, err.Error())
-			panic(msg[0])
+			g.Log().Error(ctx, msg[0])
 		} else {
-			panic(err.Error())
+			g.Log().Error(ctx, err.Error())
 		}
 	}
 }
 
-func ValueIsNil(value interface{}, msg string) {
+func ValueIsNil(ctx context.Context,value interface{}, msg string) {
 	if g.IsNil(value) {
-		panic(msg)
+		g.Log().Error(ctx, msg)
 	}
 }

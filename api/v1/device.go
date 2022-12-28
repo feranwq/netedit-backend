@@ -10,5 +10,5 @@ type DeviceReq struct {
 
 type DeviceRes struct {
 	g.Meta     `mime:"application/json"`
-	DeviceList []map[string]interface{}
+	DeviceList []string `json:"devicelist"`
 }

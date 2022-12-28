@@ -71,4 +71,6 @@ deploy:
 	kubectl   apply -f $(ROOT_DIR)/temp/kustomize.yaml; \
 	kubectl   patch -n $(NAMESPACE) deployment/$(DEPLOY_NAME) -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"$(shell date +%s)\"}}}}}";
 
-
+.PHONY: build
+build:
+	@go build
